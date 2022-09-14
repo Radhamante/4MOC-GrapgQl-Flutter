@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graphql_flutter/repositories/auth_repository.dart';
 import 'package:graphql_flutter/views/auth_page/auth_page.dart';
+import 'package:graphql_flutter/views/detail_product_page/detail_product_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       ),
       home: RepositoryProvider(
         create: (context) => AuthRepository(),
-        child: const AuthPage(),
+        child: const DetailProductPage(),
       ),
     );
   }
