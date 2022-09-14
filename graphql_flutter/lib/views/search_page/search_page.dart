@@ -23,7 +23,6 @@ class SearchPage extends StatelessWidget {
               child: Column(
                 children: const [
                   TextField(
-                    obscureText: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Search',

@@ -22,10 +22,14 @@ class AuthPage extends StatelessWidget {
           listener: (context, state) {
             // TODO: implement listener
             if (state is AuthSuccessState) {
-              print("success auth! User ${state.userLogged}");
+              context.read<AuthRepository>().cache = "1";
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const HomePage()),
+                MaterialPageRoute(
+                  builder: (context) => HomePage(
+                    userData: state.userLogged,
+                  ),
+                ),
               );
             }
           },

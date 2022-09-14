@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graphql_flutter/models/user.dart';
+import 'package:graphql_flutter/repositories/auth_repository.dart';
 import 'package:graphql_flutter/views/home_page/cubit/home_cubit.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key, required this.userData}) : super(key: key);
+  final User userData;
 
   @override
   Widget build(BuildContext context) {
+    print('userData $userData');
     return BlocProvider<HomeCubit>(
       create: (context) => HomeCubit(),
       child: BlocConsumer<HomeCubit, HomeState>(listener: (context, state) {
