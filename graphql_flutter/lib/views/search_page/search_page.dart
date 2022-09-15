@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graphql_flutter/repositories/data_repository.dart';
+import 'package:graphql_flutter/views/detail_product_page/detail_product_page.dart';
 import 'package:graphql_flutter/views/search_page/cubit/search_cubit.dart';
 
 class SearchPage extends StatelessWidget {
@@ -52,7 +53,15 @@ class SearchPage extends StatelessWidget {
                                   onDismissed: (direction) {},
                                   child: InkWell(
                                     splashColor: Colors.lightBlue,
-                                    onTap: () async {},
+                                    onTap: () async {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              DetailProductPage(),
+                                        ),
+                                      );
+                                    },
                                     child: context
                                         .read<SearchCubit>()
                                         .generateProductItemTile(index),

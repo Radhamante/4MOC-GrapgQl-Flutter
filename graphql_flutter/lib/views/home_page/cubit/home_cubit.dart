@@ -1,9 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/views/borrowed_page/borrowed_page.dart';
-import 'package:graphql_flutter/views/history_page/history_page.dart';
+import 'package:graphql_flutter/views/history_page/borrowable_history_page.dart';
 import 'package:graphql_flutter/views/library_page/library_page.dart';
 import 'package:graphql_flutter/views/search_page/search_page.dart';
+import 'package:graphql_flutter/views/userHistory_page/user_history_page.dart';
 import 'package:meta/meta.dart';
 
 part 'home_state.dart';
@@ -29,7 +30,7 @@ class HomeCubit extends Cubit<HomeState> {
     } else if (state is HomeSearchSelectedState) {
       return const SearchPage();
     } else if (state is HomeHistorySelectedState) {
-      return HistoryPage();
+      return UserHistoryPage();
     } else if (state is HomeLibrarySelectedState) {
       return const LibraryPage();
     }

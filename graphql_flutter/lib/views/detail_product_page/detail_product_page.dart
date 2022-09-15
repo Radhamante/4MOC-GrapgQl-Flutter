@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graphql_flutter/views/detail_product_page/cubit/detail_product_cubit.dart';
+import 'package:graphql_flutter/views/history_page/borrowable_history_page.dart';
 
 class DetailProductPage extends StatelessWidget {
   const DetailProductPage({Key? key}) : super(key: key);
@@ -82,7 +83,14 @@ class DetailProductPage extends StatelessWidget {
                       padding: EdgeInsets.only(left: 150, right: 150, top: 20),
                       child: ElevatedButton(
                           child: Text('Historique'),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => BorrowableHistoryPage(),
+                              ),
+                            );
+                          },
                           style: ElevatedButton.styleFrom()),
                     )
                   ]),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graphql_flutter/views/history_page/cubit/history_cubit.dart';
+import 'package:graphql_flutter/views/history_page/cubit/borrowable_history_cubit.dart';
 
-class HistoryPage extends StatelessWidget {
-  HistoryPage({Key? key}) : super(key: key);
+class BorrowableHistoryPage extends StatelessWidget {
+  BorrowableHistoryPage({Key? key}) : super(key: key);
   List<String> emprunteurList = [
     "Emprunteur1",
     "Emprunteur2",
@@ -31,19 +31,20 @@ class HistoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<HistoryCubit>(
-        create: (context) => HistoryCubit(),
-        child: BlocConsumer<HistoryCubit, HistoryState>(
+    return BlocProvider<BorrowableHistoryCubit>(
+        create: (context) => BorrowableHistoryCubit(),
+        child: BlocConsumer<BorrowableHistoryCubit, BorrowableHistoryState>(
             listener: (context, state) {
           // TODO: implement listener
           // if (state is AuthSuccessState) {
           //   print("success auth! User ${state.userLogged}");
           // }
         }, builder: (context, state) {
-          return BlocProvider<HistoryCubit>(
-              create: (context) => HistoryCubit(),
-              child: BlocConsumer<HistoryCubit, HistoryState>(
-                  listener: (context, state) {
+          return BlocProvider<BorrowableHistoryCubit>(
+              create: (context) => BorrowableHistoryCubit(),
+              child:
+                  BlocConsumer<BorrowableHistoryCubit, BorrowableHistoryState>(
+                      listener: (context, state) {
                 // TODO: implement listener
                 // if (state is AuthSuccessState) {
                 //   print("success auth! User ${state.userLogged}");
@@ -68,7 +69,8 @@ class HistoryPage extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(top: 30.0),
                           child: Text(
-                            "Historique d'emprunt du livre : " + "Nom 1",
+                            "Historique d'emprunt du livre/DVD : " +
+                                "Nom 1", // TO DO faire une tener
                             style: const TextStyle(
                                 fontSize: 23, fontWeight: FontWeight.bold),
                           ),
@@ -93,85 +95,75 @@ class HistoryPage extends StatelessWidget {
                                   dateDeDebut as List<String>;
                               List<String> dateDeFinList =
                                   dateDeFin as List<String>; //.data()
-                              return Dismissible(
-                                background: Container(color: Colors.grey),
-                                key: UniqueKey(),
-                                // onDismissed: (direction) {
-                                //   // Remove the item from the data source.
-                                //   setState(() {
-                                //     deleteBook(dataBookFirestore[index].id, book['name']);
-                                //   });
-                                // },
-                                child: InkWell(
-                                  splashColor: Colors.lightBlue,
-                                  onTap: () {},
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
-                                    child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 9),
-                                          child: SizedBox(
-                                            width: 300,
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  "Emprunteur : " +
-                                                      emprunteur[index],
-                                                  style: const TextStyle(
-                                                      fontSize: 20,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                                Text(
-                                                    "Date de début : " +
-                                                        dateDeDebutList[index]
-                                                            .toString(),
-                                                    style: const TextStyle(
-                                                        fontSize: 17,
-                                                        fontStyle:
-                                                            FontStyle.italic)),
-                                                Text(
-                                                  "Date de fin : " +
-                                                      dateDeFinList[index]
+                              return InkWell(
+                                splashColor: Colors.lightBlue,
+                                onTap: () {},
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 9),
+                                        child: SizedBox(
+                                          width: 300,
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                "Emprunteur : " +
+                                                    emprunteur[index],
+                                                style: const TextStyle(
+                                                    fontSize: 20,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              Text(
+                                                  "Date de début : " +
+                                                      dateDeDebutList[index]
                                                           .toString(),
                                                   style: const TextStyle(
                                                       fontSize: 17,
                                                       fontStyle:
-                                                          FontStyle.italic),
-                                                ),
-                                                Row(
-                                                    // children: [
-                                                    //   for (final categorie
-                                                    //       in book[index])
-                                                    //     Padding(
-                                                    //       padding:
-                                                    //           const EdgeInsets.only(
-                                                    //               right: 5),
-                                                    //       child: Chip(
-                                                    //         backgroundColor:
-                                                    //             Colors.blue,
-                                                    //         label: Text(
-                                                    //           categorie,
-                                                    //           style: const TextStyle(
-                                                    //             color: Colors.white,
-                                                    //           ),
-                                                    //         ),
-                                                    //       ),
-                                                    //     ),
-                                                    // ],
-                                                    ),
-                                              ],
-                                            ),
+                                                          FontStyle.italic)),
+                                              Text(
+                                                "Date de fin : " +
+                                                    dateDeFinList[index]
+                                                        .toString(),
+                                                style: const TextStyle(
+                                                    fontSize: 17,
+                                                    fontStyle:
+                                                        FontStyle.italic),
+                                              ),
+                                              Row(
+                                                  // children: [
+                                                  //   for (final categorie
+                                                  //       in book[index])
+                                                  //     Padding(
+                                                  //       padding:
+                                                  //           const EdgeInsets.only(
+                                                  //               right: 5),
+                                                  //       child: Chip(
+                                                  //         backgroundColor:
+                                                  //             Colors.blue,
+                                                  //         label: Text(
+                                                  //           categorie,
+                                                  //           style: const TextStyle(
+                                                  //             color: Colors.white,
+                                                  //           ),
+                                                  //         ),
+                                                  //       ),
+                                                  //     ),
+                                                  // ],
+                                                  ),
+                                            ],
                                           ),
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               );
