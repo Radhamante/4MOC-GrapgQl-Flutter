@@ -29,7 +29,7 @@ class HomeCubit extends Cubit<HomeState> {
     } else if (state is HomeSearchSelectedState) {
       return const SearchPage();
     } else if (state is HomeHistorySelectedState) {
-      return const HistoryPage();
+      return HistoryPage();
     } else if (state is HomeLibrarySelectedState) {
       return const LibraryPage();
     }
