@@ -1,6 +1,18 @@
 part of 'search_cubit.dart';
 
 @immutable
-abstract class SearchState {}
+abstract class SearchState {
+  SearchState(this.data);
+  List<dynamic> data;
+  String keyWordSearch = "";
+}
 
-class SearchInitial extends SearchState {}
+class SearchLoadingState extends SearchState {
+  SearchLoadingState() : super([]);
+}
+
+class SearchLoadedState extends SearchState {
+  SearchLoadedState(super.data, String newKeyWord) {
+    keyWordSearch = newKeyWord;
+  }
+}

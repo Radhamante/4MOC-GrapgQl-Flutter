@@ -5,6 +5,6 @@ class Library {
   String id;
   String name;
   Address address;
-  List<Book> books;
+  List<Book>? books;
   Library(this.id, this.name, this.address, this.books);
 }

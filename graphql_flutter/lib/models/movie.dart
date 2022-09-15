@@ -1,23 +1,22 @@
 import 'package:graphql_flutter/enums/book_genre.dart';
+import 'package:graphql_flutter/enums/movie_genre.dart';
 import 'package:graphql_flutter/models/history.dart';
 import 'package:graphql_flutter/models/library.dart';
 import 'package:graphql_flutter/models/user.dart';
 
-class Book {
+class Movie {
   String id;
-  String isbn;
   String title;
   String author;
   DateTime date;
   Library library;
   User? borrower;
   String imageUrl;
-  List<BookGenre> genre;
+  List<MovieGenre> genre;
   // List<History> historys;
 
-  Book(
+  Movie(
     this.id,
-    this.isbn,
     this.title,
     this.author,
     this.date,
