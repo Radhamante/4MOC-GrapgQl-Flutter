@@ -1,6 +1,15 @@
 part of 'borrowed_cubit.dart';
 
 @immutable
-abstract class BorrowedState {}
+abstract class BorrowedState {
+  BorrowedState(this.data);
+  List<dynamic> data;
+}
 
-class BorrowedInitial extends BorrowedState {}
+class BorrowedLoadingState extends BorrowedState {
+  BorrowedLoadingState() : super([]);
+}
+
+class BorrowedLoadedState extends BorrowedState {
+  BorrowedLoadedState(super.data);
+}

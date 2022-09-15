@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graphql_flutter/models/user.dart';
+import 'package:graphql_flutter/repositories/data_repository.dart';
 import 'package:graphql_flutter/views/borrowed_page/cubit/borrowed_cubit.dart';
+import 'package:provider/provider.dart';
 
 class BorrowedPage extends StatelessWidget {
-  const BorrowedPage({Key? key}) : super(key: key);
+  const BorrowedPage({Key? key, required this.userData}) : super(key: key);
+  final User userData;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<BorrowedCubit>(
-      create: (context) => BorrowedCubit(),
+      create: (context) => BorrowedCubit(
+        context.read<DataRepository>(),
+        userData.id,
+      ),
       child: BlocConsumer<BorrowedCubit, BorrowedState>(
         listener: (context, state) {
           // TODO: implement listener
@@ -17,8 +24,27 @@ class BorrowedPage extends StatelessWidget {
           // }
         },
         builder: (context, state) {
-          return Container(
-            child: const Text("Borrowed Page"),
+          if (state is BorrowedLoadingState) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return Center(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 15.0),
+              child: Expanded(
+                child: Center(
+                  child: ListView.builder(
+                    itemCount: state.data.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return context
+                          .read<BorrowedCubit>()
+                          .generateBorrowedItemTile(index);
+                    },
+                  ),
+                ),
+              ),
+            ),
           );
         },
       ),

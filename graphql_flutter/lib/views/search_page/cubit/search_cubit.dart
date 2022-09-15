@@ -132,7 +132,6 @@ class SearchCubit extends Cubit<SearchState> {
         )
       ],
     );
-    ;
   }
   // fetchEntities
 }

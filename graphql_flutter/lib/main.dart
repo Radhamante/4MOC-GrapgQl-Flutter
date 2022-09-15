@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       ),
       home: RepositoryProvider(
         create: (context) => AuthRepository(),
-        child: AuthPage(),
+        child: const AuthPage(),
       ),
     );
   }
