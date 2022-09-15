@@ -8,6 +8,16 @@ import 'package:graphql_flutter/models/movie.dart';
 import 'package:graphql_flutter/models/user.dart';
 
 class DataRepository {
+  Future<List<Library>> fetchAllLibrary() async {
+    Address address = Address(20, 20, "st Antoine");
+    Library library1 = Library("1", "titi", address, null);
+    Library library2 = Library("2", "toto", address, null);
+    Library library3 = Library("3", "tata", address, null);
+    Library library4 = Library("4", "tete", address, null);
+    Library library5 = Library("5", "tyty", address, null);
+    return [library1, library2, library3, library4, library5];
+  }
+
   Future<List<dynamic>> fetchEntities() async {
     await Future.delayed(const Duration(milliseconds: 1000));
     User user = User("99", "user", "user@mail.fr", true);
