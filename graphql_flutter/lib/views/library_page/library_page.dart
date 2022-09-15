@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graphql_flutter/repositories/data_repository.dart';
 import 'package:graphql_flutter/views/library_page/cubit/library_cubit.dart';
 import 'package:graphql_flutter/views/search_page/cubit/search_cubit.dart';
+
+import '../../models/library.dart';
 
 class LibraryPage extends StatelessWidget {
   const LibraryPage({Key? key}) : super(key: key);
@@ -11,7 +14,7 @@ class LibraryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<LibraryCubit>(
-      create: (context) => LibraryCubit(),
+      create: (context) => LibraryCubit(context.read<DataRepository>()),
       child: BlocConsumer<LibraryCubit, LibraryState>(
         listener: (context, state) {
           // TODO: implement listener
@@ -20,8 +23,47 @@ class LibraryPage extends StatelessWidget {
           // }
         },
         builder: (context, state) {
-          return Container(
-            child: const Text("Library Page"),
+          return Center(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 15.0),
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  state is SearchLoadingState
+                      ? const Center(child: CircularProgressIndicator())
+                      : Expanded(
+                          child: Center(
+                            child: ListView.builder(
+                              itemCount: state.data.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return Dismissible(
+                                  background: Container(color: Colors.grey),
+                                  key: UniqueKey(),
+                                  onDismissed: (direction) {},
+                                  child: InkWell(
+                                    splashColor: Colors.lightBlue,
+                                    onTap: () async {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => LibraryPage(),
+                                        ),
+                                      );
+                                    },
+                                    child: context
+                                        .read<LibraryCubit>()
+                                        .generateLibraryTile(index),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        )
+                ],
+              ),
+            ),
           );
         },
       ),

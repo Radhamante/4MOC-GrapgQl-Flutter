@@ -32,7 +32,7 @@ class HomeCubit extends Cubit<HomeState> {
     } else if (state is HomeHistorySelectedState) {
       return UserHistoryPage();
     } else if (state is HomeLibrarySelectedState) {
-      return const LibraryPage();
+      return LibraryPage();
     }
     return const SizedBox();
   }
