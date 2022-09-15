@@ -4,6 +4,7 @@ import 'package:graphql_flutter/models/user.dart';
 import 'package:graphql_flutter/repositories/auth_repository.dart';
 import 'package:graphql_flutter/repositories/data_repository.dart';
 import 'package:graphql_flutter/views/home_page/cubit/home_cubit.dart';
+import 'package:graphql_flutter/views/profil_page/profil_user_page.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
@@ -31,7 +32,14 @@ class HomePage extends StatelessWidget {
                 title: const Text("E Library"),
                 actions: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => UserProfilPage(),
+                        ),
+                      );
+                    },
                     icon: const Icon(
                       Icons.person_outline,
                     ),
