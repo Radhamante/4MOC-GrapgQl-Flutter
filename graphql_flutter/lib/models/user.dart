@@ -2,8 +2,8 @@ class User {
   String id;
   String name;
   String email;
-  bool isAdmin = true;
-  User(this.id, this.name, this.email);
+  bool isAdmin;
+  User(this.id, this.name, this.email, this.isAdmin);
   // password: String!
   // books_borrowed: [Book]!
   // isAdmin: Boolean!

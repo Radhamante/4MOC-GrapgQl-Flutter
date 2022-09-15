@@ -22,7 +22,6 @@ class AuthPage extends StatelessWidget {
           listener: (context, state) {
             // TODO: implement listener
             if (state is AuthSuccessState) {
-              context.read<AuthRepository>().cache = "1";
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(

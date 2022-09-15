@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graphql_flutter/repositories/data_repository.dart';
 import 'package:graphql_flutter/views/search_page/cubit/search_cubit.dart';
 
 class SearchPage extends StatelessWidget {
@@ -8,7 +9,7 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<SearchCubit>(
-      create: (context) => SearchCubit(),
+      create: (context) => SearchCubit(context.read<DataRepository>()),
       child: BlocConsumer<SearchCubit, SearchState>(
         listener: (context, state) {
           // TODO: implement listener
@@ -17,18 +18,50 @@ class SearchPage extends StatelessWidget {
           // }
         },
         builder: (context, state) {
+          // if (state is SearchLoadingState) {
+          //   return const Center(child: CircularProgressIndicator());
+          // }
           return Center(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 15.0),
               child: Column(
-                children: const [
+                children: [
                   TextField(
-                    decoration: InputDecoration(
+                    controller: context.read<SearchCubit>().searchController,
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Search',
                       prefixIcon: Icon(Icons.search),
                     ),
-                  )
+                    onChanged: (value) =>
+                        context.read<SearchCubit>().onWriteSearch(value),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  state is SearchLoadingState
+                      ? const Center(child: CircularProgressIndicator())
+                      : Expanded(
+                          child: Center(
+                            child: ListView.builder(
+                              itemCount: state.data.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return Dismissible(
+                                  background: Container(color: Colors.grey),
+                                  key: UniqueKey(),
+                                  onDismissed: (direction) {},
+                                  child: InkWell(
+                                    splashColor: Colors.lightBlue,
+                                    onTap: () async {},
+                                    child: context
+                                        .read<SearchCubit>()
+                                        .generateProductItemTile(index),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        )
                 ],
               ),
             ),
