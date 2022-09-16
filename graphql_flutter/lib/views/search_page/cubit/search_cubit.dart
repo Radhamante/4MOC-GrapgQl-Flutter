@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:graphql_flutter/models/book.dart';
-import 'package:graphql_flutter/models/library.dart';
-import 'package:graphql_flutter/models/movie.dart';
-import 'package:graphql_flutter/models/user.dart';
-import 'package:graphql_flutter/repositories/data_repository.dart';
+import 'package:graphql_flutter_5_moc/models/book.dart';
+import 'package:graphql_flutter_5_moc/models/library.dart';
+import 'package:graphql_flutter_5_moc/models/movie.dart';
+import 'package:graphql_flutter_5_moc/models/user.dart';
+import 'package:graphql_flutter_5_moc/repositories/data_repository.dart';
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
 
@@ -40,7 +40,7 @@ class SearchCubit extends Cubit<SearchState> {
 
   Future<void> setFirstDataList() async {
     emit(SearchLoadingState());
-    List<dynamic> data = await dataRepository.fetchEntities();
+    List<dynamic> data = await dataRepository.fetchEntities("");
     print(data);
     emit(SearchLoadedState(data, ""));
   }

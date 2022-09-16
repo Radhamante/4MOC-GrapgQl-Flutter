@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:graphql_flutter/models/book.dart';
-import 'package:graphql_flutter/models/movie.dart';
-import 'package:graphql_flutter/repositories/data_repository.dart';
+import 'package:graphql_flutter_5_moc/models/book.dart';
+import 'package:graphql_flutter_5_moc/models/movie.dart';
+import 'package:graphql_flutter_5_moc/repositories/data_repository.dart';
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
 

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graphql_flutter/repositories/data_repository.dart';
-import 'package:graphql_flutter/views/library_page/cubit/library_cubit.dart';
-import 'package:graphql_flutter/views/search_page/cubit/search_cubit.dart';
+import 'package:graphql_flutter_5_moc/repositories/data_repository.dart';
+import 'package:graphql_flutter_5_moc/views/library_page/cubit/library_cubit.dart';
+import 'package:graphql_flutter_5_moc/views/search_page/cubit/search_cubit.dart';
 
 import '../../models/library.dart';
 

@@ -1,5 +1,5 @@
-import 'package:graphql_flutter/models/address.dart';
-import 'package:graphql_flutter/models/book.dart';
+import 'package:graphql_flutter_5_moc/models/address.dart';
+import 'package:graphql_flutter_5_moc/models/book.dart';
 
 class Library {
   String id;

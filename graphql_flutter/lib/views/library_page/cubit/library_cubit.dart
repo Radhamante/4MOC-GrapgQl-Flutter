@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:graphql_flutter/models/library.dart';
-import 'package:graphql_flutter/repositories/data_repository.dart';
-import 'package:graphql_flutter/views/search_page/cubit/search_cubit.dart';
+import 'package:graphql_flutter_5_moc/models/library.dart';
+import 'package:graphql_flutter_5_moc/repositories/data_repository.dart';
+import 'package:graphql_flutter_5_moc/views/search_page/cubit/search_cubit.dart';
 import 'package:meta/meta.dart';
 
 part 'library_state.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graphql_flutter/views/history_page/cubit/borrowable_history_cubit.dart';
+import 'package:graphql_flutter_5_moc/views/history_page/cubit/borrowable_history_cubit.dart';
 
 class BorrowableHistoryPage extends StatelessWidget {
   BorrowableHistoryPage({Key? key}) : super(key: key);

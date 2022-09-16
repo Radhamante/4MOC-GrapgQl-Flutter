@@ -1,12 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graphql_flutter/repositories/auth_repository.dart';
-import 'package:graphql_flutter/views/auth_page/auth_page.dart';
-import 'package:graphql_flutter/views/detail_product_page/detail_product_page.dart';
-import 'package:graphql_flutter/views/history_page/borrowable_history_page.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:graphql_flutter_5_moc/repositories/auth_repository.dart';
+import 'package:graphql_flutter_5_moc/views/auth_page/auth_page.dart';
+import 'package:graphql_flutter_5_moc/views/detail_product_page/detail_product_page.dart';
+import 'package:graphql_flutter_5_moc/views/history_page/borrowable_history_page.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+String token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMjM3MDdiMmI3NDczZDI2NmZjZjFkZCIsImVtYWlsIjoibHVkb0BsZW1laWxsZXVyLmZyIiwiaWF0IjoxNjYzMjY2OTM5LCJleHAiOjE2OTQ4MjQ1Mzl9.yEe981Ve1HBmTPgcJYDwbxgWRSyfbPCJKi94hWou3oc"; //.state;
+
+void main() async {
+  // We're using HiveStore for persistence,
+  // so we need to initialize Hive.
+  await initHiveForFlutter();
+
+  final Link link = HttpLink('http://localhost:4000/graphql', defaultHeaders: {
+    if (token.isNotEmpty) 'authorization': token,
+  });
+
+  ValueNotifier<GraphQLClient> client = ValueNotifier(
+    GraphQLClient(
+      link: link,
+      // The default store is the InMemoryStore, which does NOT persist to disk
+      cache: GraphQLCache(store: HiveStore()),
+    ),
+  );
   runApp(const MyApp());
 }
 
