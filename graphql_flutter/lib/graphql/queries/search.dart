@@ -3,6 +3,7 @@ String querySearch(String query) {
 query search{
   search(query:"$query", filter:{start: 0, count:100}){
     ... on Book{
+      id
       title
       isbn
       title

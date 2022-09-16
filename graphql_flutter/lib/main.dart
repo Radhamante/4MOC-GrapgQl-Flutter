@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:graphql_flutter_5_moc/models/user.dart';
 import 'package:graphql_flutter_5_moc/repositories/auth_repository.dart';
 import 'package:graphql_flutter_5_moc/views/auth_page/auth_page.dart';
 import 'package:graphql_flutter_5_moc/views/detail_product_page/detail_product_page.dart';
@@ -8,6 +9,8 @@ import 'package:provider/provider.dart';
 
 String token =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMjM3MDdiMmI3NDczZDI2NmZjZjFkZCIsImVtYWlsIjoibHVkb0BsZW1laWxsZXVyLmZyIiwiaWF0IjoxNjYzMjY2OTM5LCJleHAiOjE2OTQ4MjQ1Mzl9.yEe981Ve1HBmTPgcJYDwbxgWRSyfbPCJKi94hWou3oc"; //.state;
+
+User? user;
 
 void main() async {
   // We're using HiveStore for persistence,

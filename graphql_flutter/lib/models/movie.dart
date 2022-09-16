@@ -26,4 +26,14 @@ class Movie {
     this.genre,
     // this.historys,
   );
+
+  Movie.fromJson(Map<String, dynamic> json)
+      : id = json['name'] != null ? json['name'] : "",
+        title = json['title'] != null ? json['title'] : "",
+        author = json['author'] != null ? json['author'] : "",
+        date = DateTime.now(),
+        library = json['library'] != null ? json['library'] : null,
+        borrower = json['borrower'] != null ? json['borrower'] : null,
+        imageUrl = json['imageUrl'] != null ? json['imageUrl'] : "",
+        genre = [];
 }

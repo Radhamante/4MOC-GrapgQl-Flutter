@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graphql_flutter_5_moc/views/detail_product_page/cubit/detail_product_cubit.dart';
+import 'package:graphql_flutter_5_moc/views/profil_page/cubit/profil_user_page_cubit.dart';
 
 class UserProfilPage extends StatelessWidget {
   UserProfilPage({Key? key}) : super(key: key);
@@ -17,9 +18,9 @@ class UserProfilPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<DetailProductCubit>(
-        create: (context) => DetailProductCubit(),
-        child: BlocConsumer<DetailProductCubit, DetailProductState>(
+    return BlocProvider<ProfilUserPageCubit>(
+        create: (context) => ProfilUserPageCubit(),
+        child: BlocConsumer<ProfilUserPageCubit, ProfilUserPageState>(
             listener: (context, state) {
           // TODO: implement listener
           // if (state is AuthSuccessState) {

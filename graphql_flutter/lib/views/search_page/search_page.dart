@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graphql_flutter_5_moc/models/book.dart';
 import 'package:graphql_flutter_5_moc/repositories/data_repository.dart';
 import 'package:graphql_flutter_5_moc/views/detail_product_page/detail_product_page.dart';
 import 'package:graphql_flutter_5_moc/views/search_page/cubit/search_cubit.dart';
@@ -58,7 +59,9 @@ class SearchPage extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) =>
-                                              DetailProductPage(),
+                                              DetailProductPage(
+                                            book: state.data[index],
+                                          ),
                                         ),
                                       );
                                     },

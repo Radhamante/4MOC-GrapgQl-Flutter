@@ -27,7 +27,7 @@ class AuthRepository {
         headers: {"authorization": token});
 
     var data = jsonDecode(res.body)["data"]["register"];
-    User user = User.fromJson(data["user"]);
+    user = User.fromJson(data["user"]);
     token = data["token"];
     return user;
   }
@@ -41,7 +41,7 @@ class AuthRepository {
         headers: {"authorization": token});
 
     var data = jsonDecode(res.body)["data"]["login"];
-    User user = User.fromJson(data["user"]);
+    user = User.fromJson(data["user"]);
     token = data["token"];
 
     token = jsonDecode(res.body)["data"]["login"]["token"];

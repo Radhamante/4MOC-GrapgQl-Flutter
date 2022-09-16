@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:graphql_flutter_5_moc/enums/book_genre.dart';
 import 'package:graphql_flutter_5_moc/enums/movie_genre.dart';
+import 'package:graphql_flutter_5_moc/graphql/queries/borrow.dart';
 import 'package:graphql_flutter_5_moc/graphql/queries/search.dart';
 import 'package:graphql_flutter_5_moc/main.dart';
 import 'package:graphql_flutter_5_moc/models/address.dart';
@@ -13,6 +14,28 @@ import 'package:graphql_flutter_5_moc/models/user.dart';
 import 'package:http/http.dart' as http;
 
 class DataRepository {
+  Future<dynamic> borrow(String idBook, String idUser) async {
+    var res =
+        await http.post(Uri.parse("http://localhost:4000/graphql"), body: {
+      "query": mutationBorrow(
+        idBook: idBook,
+        idUser: idUser,
+      )
+    }, headers: {
+      "authorization": token
+    });
+    var dataRes = jsonDecode(res.body)["data"];
+    print("dataRes $dataRes");
+    return dataRes;
+    // for (var data in dataRes) {
+    //   switch (data["__typename"]) {
+    //     case "Book":
+    //       arrayRes.add(Book.fromJson(data));
+    //       break;
+    //   }
+    // }
+  }
+
   Future<List<Library>> fetchAllLibrary() async {
     Address address = Address(20, 20, "st Antoine");
     Library library1 = Library("1", "titi", address, null);
