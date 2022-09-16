@@ -1,10 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:graphql_flutter/models/user.dart';
-import 'package:graphql_flutter/views/borrowed_page/borrowed_page.dart';
-import 'package:graphql_flutter/views/library_page/library_page.dart';
-import 'package:graphql_flutter/views/search_page/search_page.dart';
-import 'package:graphql_flutter/views/userHistory_page/user_history_page.dart';
+import 'package:graphql_flutter_5_moc/models/user.dart';
+import 'package:graphql_flutter_5_moc/views/borrowed_page/borrowed_page.dart';
+import 'package:graphql_flutter_5_moc/views/library_page/library_page.dart';
+import 'package:graphql_flutter_5_moc/views/search_page/search_page.dart';
+import 'package:graphql_flutter_5_moc/views/userHistory_page/user_history_page.dart';
+
 import 'package:meta/meta.dart';
 
 part 'home_state.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graphql_flutter/models/user.dart';
-import 'package:graphql_flutter/repositories/data_repository.dart';
-import 'package:graphql_flutter/views/borrowed_page/cubit/borrowed_cubit.dart';
+import 'package:graphql_flutter_5_moc/models/user.dart';
+import 'package:graphql_flutter_5_moc/repositories/data_repository.dart';
+import 'package:graphql_flutter_5_moc/views/borrowed_page/cubit/borrowed_cubit.dart';
 import 'package:provider/provider.dart';
 
 class BorrowedPage extends StatelessWidget {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graphql_flutter/components/app_text_form_field.dart';
-import 'package:graphql_flutter/enums/user_gender.dart';
-import 'package:graphql_flutter/repositories/auth_repository.dart';
-import 'package:graphql_flutter/views/auth_page/cubit/auth_cubit.dart';
-import 'package:graphql_flutter/views/home_page/home_page.dart';
+import 'package:graphql_flutter_5_moc/components/app_text_form_field.dart';
+import 'package:graphql_flutter_5_moc/enums/user_gender.dart';
+import 'package:graphql_flutter_5_moc/repositories/auth_repository.dart';
+import 'package:graphql_flutter_5_moc/views/auth_page/cubit/auth_cubit.dart';
+import 'package:graphql_flutter_5_moc/views/home_page/home_page.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({Key? key}) : super(key: key);

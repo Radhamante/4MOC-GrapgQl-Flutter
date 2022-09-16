@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:graphql_flutter/components/app_text_form_field.dart';
-import 'package:graphql_flutter/dtos/user_dto.dart';
-import 'package:graphql_flutter/enums/user_gender.dart';
-import 'package:graphql_flutter/models/user.dart';
-import 'package:graphql_flutter/repositories/auth_repository.dart';
+import 'package:graphql_flutter_5_moc/components/app_text_form_field.dart';
+import 'package:graphql_flutter_5_moc/dtos/user_dto.dart';
+import 'package:graphql_flutter_5_moc/enums/user_gender.dart';
+import 'package:graphql_flutter_5_moc/models/user.dart';
+import 'package:graphql_flutter_5_moc/repositories/auth_repository.dart';
 import 'package:meta/meta.dart';
 
 part 'auth_state.dart';

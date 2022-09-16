@@ -1,8 +1,8 @@
-import 'package:graphql_flutter/enums/book_genre.dart';
-import 'package:graphql_flutter/enums/movie_genre.dart';
-import 'package:graphql_flutter/models/history.dart';
-import 'package:graphql_flutter/models/library.dart';
-import 'package:graphql_flutter/models/user.dart';
+import 'package:graphql_flutter_5_moc/enums/book_genre.dart';
+import 'package:graphql_flutter_5_moc/enums/movie_genre.dart';
+import 'package:graphql_flutter_5_moc/models/history.dart';
+import 'package:graphql_flutter_5_moc/models/library.dart';
+import 'package:graphql_flutter_5_moc/models/user.dart';
 
 class Movie {
   String id;

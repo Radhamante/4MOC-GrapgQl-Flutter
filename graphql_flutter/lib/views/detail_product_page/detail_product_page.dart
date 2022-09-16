@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graphql_flutter/views/bowrrable_history_page/borrowable_history_page.dart';
-import 'package:graphql_flutter/views/detail_product_page/cubit/detail_product_cubit.dart';
+import 'package:graphql_flutter_5_moc/views/bowrrable_history_page/borrowable_history_page.dart';
+import 'package:graphql_flutter_5_moc/views/detail_product_page/cubit/detail_product_cubit.dart';
+import 'package:graphql_flutter_5_moc/views/detail_product_page/cubit/detail_product_cubit.dart';
 
 class DetailProductPage extends StatelessWidget {
   const DetailProductPage({Key? key}) : super(key: key);

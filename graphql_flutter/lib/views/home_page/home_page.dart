@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graphql_flutter/models/user.dart';
-import 'package:graphql_flutter/repositories/auth_repository.dart';
-import 'package:graphql_flutter/repositories/data_repository.dart';
-import 'package:graphql_flutter/views/home_page/cubit/home_cubit.dart';
-import 'package:graphql_flutter/views/profil_page/profil_user_page.dart';
+import 'package:graphql_flutter_5_moc/models/user.dart';
+import 'package:graphql_flutter_5_moc/repositories/auth_repository.dart';
+import 'package:graphql_flutter_5_moc/repositories/data_repository.dart';
+import 'package:graphql_flutter_5_moc/views/home_page/cubit/home_cubit.dart';
+import 'package:graphql_flutter_5_moc/views/profil_page/profil_user_page.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {

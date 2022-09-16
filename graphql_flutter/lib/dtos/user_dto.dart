@@ -1,4 +1,4 @@
-import 'package:graphql_flutter/enums/user_gender.dart';
+import 'package:graphql_flutter_5_moc/enums/user_gender.dart';
 
 class UserCreateDTO {
   String name;
